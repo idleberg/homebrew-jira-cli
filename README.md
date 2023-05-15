@@ -8,8 +8,6 @@ Make sure that [Homebrew](https://brew.sh/) is installed with `brew` in your `PA
 
 ## Installation
 
-Tap this repository in order to be able to install its formulae
-
 ```sh
 $ brew tap idleberg/jira-cli
 $ brew install --cask jira-cli
