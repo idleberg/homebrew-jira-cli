@@ -1,0 +1,25 @@
+
+name: test:audit
+
+on:
+  push:
+    paths:
+    - '.github/workflows/audit.yml'
+    - 'action.yml'
+  workflow_dispatch:
+
+jobs:
+  test-run:
+    strategy:
+      matrix:
+        os: [macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Audit Cask
+      run: |
+        brew update
+        brew audit --cask --online Cask/jira-cli.rb
