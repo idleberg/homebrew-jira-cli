@@ -55,7 +55,8 @@ jobs:
 
       - run: pnpm run build
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Commit new version
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: ':robot: automatic version bump'
           file_pattern: 'Cask/jira-cli.rb'
