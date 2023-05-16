@@ -6,6 +6,7 @@ on:
     paths:
     - '.github/workflows/audit.yml'
     - 'action.yml'
+    - 'Cask/jira-cli.rb'
   workflow_dispatch:
 
 jobs:
