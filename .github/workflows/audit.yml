@@ -21,5 +21,10 @@ jobs:
 
     - name: Audit Cask
       run: |
+        cask=Cask/jira-cli.rb
         brew update
-        brew audit --cask --online Cask/jira-cli.rb
+        brew audit --cask --online $cask
+        brew style --fix $cask
+        brew audit --new-cask $cask
+        brew install --cask $cask
+        brew uninstall --cask $cask
