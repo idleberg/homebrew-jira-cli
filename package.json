@@ -1,0 +1,20 @@
+{
+  "name": "homebrew-jira-cli",
+  "version": "0.0.0",
+  "private": true,
+  "module": "index.mjs",
+  "scripts": {
+    "build": "node bin/build.mjs"
+  },
+  "keywords": [],
+  "author": "Jan T. Sott",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "@extractus/feed-extractor": "^6.2.2",
+    "download": "^8.0.0",
+    "ejs": "^3.1.9",
+    "hasha": "^5.2.2",
+    "log-symbols": "^5.1.0",
+    "semantic-compare": "^1.0.2"
+  }
+}

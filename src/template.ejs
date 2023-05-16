@@ -1,0 +1,16 @@
+# typed: true
+# frozen_string_literal: true
+
+cask "jira-cli" do
+  arch intel: "x86_64"
+
+  version "<%= version %>"
+  sha256 intel: "<%= checksum %>"
+
+  url "https://github.com/ankitpokhrel/jira-cli/releases/download/v#{version}/jira_#{version}_macOS_#{arch}.tar.gz"
+  name "Jira CLI"
+  desc "Feature-rich interactive Jira command-line"
+  homepage "https://github.com/ankitpokhrel/jira-cli"
+
+  binary "jira_#{version}_macOS_#{arch}/bin/jira"
+end
