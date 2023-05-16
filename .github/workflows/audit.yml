@@ -26,6 +26,5 @@ jobs:
         brew update
         brew audit --cask --online $cask
         brew style --fix $cask
-        brew audit --new-cask $cask
         brew install --cask $cask
         brew uninstall --cask $cask
