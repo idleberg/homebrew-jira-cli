@@ -1,0 +1,68 @@
+name: update
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - '.github/workflows/build.yml'
+    - 'bin/**'
+    - 'src/**'
+    - 'package.json'
+    - 'pnpm-lock.yaml'
+
+  pull_request:
+    paths:
+    - '.github/workflows/build.yml'
+    - 'bin/**'
+    - 'src/**'
+    - 'package.json'
+    - 'pnpm-lock.yaml'
+
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '*'
+
+      - uses: pnpm/action-setup@v2.0.1
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+          version: 7
+
+      - run: pnpm run build
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ':robot: automatic version bump'
+          file_pattern: 'Cask/jira-cli.rb'
+
+      - name: Keep workflow alive
+        uses: gautamkrishnar/keepalive-workflow@v1
+        with:
+          commit_message: 'keep alive'
+          committer_username: 'GitHub Action'
+          committer_email: 'action@users.noreply.github.com'
