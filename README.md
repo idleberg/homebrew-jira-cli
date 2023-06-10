@@ -17,7 +17,7 @@ $ brew tap idleberg/jira-cli
 $ brew install --cask jira-cli
 ```
 
-:warning: Note ARM binaries need to be signed by the developer, hence this tap only lets you install the build for Intel
+:warning: **Note:** ARM binaries need to be signed by the developer, hence this tap only lets you install the build for Intel
 
 ## License
 
