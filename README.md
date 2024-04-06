@@ -1,5 +1,4 @@
-> **Warning**
-> 
+> [!WARNING]
 > It turns out there already is a [Homebrew tap](https://github.com/ankitpokhrel/homebrew-jira-cli) by the official developer of jira-cli, so I recommend switching. However, this tap will continue to exist while the autoupdater continues to do its job.
 
 # homebrew-jira-cli
