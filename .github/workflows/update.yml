@@ -35,12 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '*'
 
@@ -60,10 +60,3 @@ jobs:
         with:
           commit_message: ':robot: automatic version bump'
           file_pattern: 'Cask/jira-cli.rb'
-
-      - name: Keep workflow alive
-        uses: gautamkrishnar/keepalive-workflow@v1
-        with:
-          commit_message: 'keep alive'
-          committer_username: 'GitHub Action'
-          committer_email: 'action@users.noreply.github.com'
